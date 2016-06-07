@@ -27,7 +27,10 @@ namespace Lesson5
             List<Card> Deck = new List<Card>();
 
             CreateDeck(Deck);
-            DisplayDeck(Deck);
+            DisplayDeck(Deck); // display initial state of deck
+
+            ShuffleDeck(Deck);
+            DisplayDeck(Deck); // display shuffled state of deck
         }
 
         public static void CreateDeck(List<Card> deck)
@@ -47,7 +50,7 @@ namespace Lesson5
                         suit = "diamonds";
                         break;
                     case 3:
-                        suit = "spade";
+                        suit = "spades";
                         break;
                 }
                 for (int face = 1; face < 14; face++)
@@ -55,8 +58,18 @@ namespace Lesson5
                     deck.Add(new Card(face, suit));
                 } // end for - face
             }
-            
-        }public static void DisplayDeck(List<Card> deck)
+
+        }
+        /**
+         * <summary>
+         * This method displays a list of Card objects to the Console
+         * </summary>
+         * 
+         * @method DisplayDeck
+         * @param {List<card>} deck
+         * @returns {void}
+         */
+        public static void DisplayDeck(List<Card> deck)
         {
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             Console.WriteLine("+ Current Deck                                         +");
@@ -67,6 +80,30 @@ namespace Lesson5
             }
             Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             Console.WriteLine();
+        }
+        /**
+         * <summary>
+         * This method randomly shuffles a list of Card objects
+         * </summary>
+         * 
+         * @method ShuffleDeck
+         * @param {List<<Card>} deck
+         * @returns {void}
+         */
+        public static void ShuffleDeck(List<Card> deck)
+        {
+            // creates a pseudo-random number sequence and stroes it in random
+            Random random = new Random();
+            // record the number of cards in the deck list
+            int cardCount = deck.Count;
+            // Iterate through the list of cards
+            for (int currentCard = 0; currentCard < cardCount; currentCard++)
+            {
+                Card tempCard = deck[currentCard]; // copy current card to temp location
+                int randomCard = random.Next(0, cardCount); // get a random card index
+                deck[currentCard] = deck[randomCard]; // copy value from randomCard to currentCard
+                deck[randomCard] = tempCard; // copy currentCard to randomCard
+            }
         }
     }
 }
