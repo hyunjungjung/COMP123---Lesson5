@@ -101,7 +101,7 @@ namespace Lesson5
             Random random = new Random();
             // record the number of cards in the deck list
             int cardCount = this.Count;
-            // Console.WriteLine("card count :{0}", cardCount);
+            Console.WriteLine("card count :{0}", cardCount);
             // Iterate through the list of cards
             for (int currentCard = 0; currentCard < cardCount; currentCard++)
             {
@@ -111,5 +111,23 @@ namespace Lesson5
                 this[randomCard] = tempCard; // copy currentCard to randomCard
             }
         }
-    }
+
+        /**
+         * <summary>
+         * This method will remove the 0th item from the deck and return it to the caller
+         * </summary>
+         * 
+         * @method Deal
+         * @returns {Card}
+         */
+        public Card Deal()
+        {
+
+            Card returnCard = this[0]; // copy the 0th card in the stack to the returnCard
+
+            this.RemoveAt(0); // remove the 0th card from the deck
+
+            return returnCard;
+        }
+      }
 }

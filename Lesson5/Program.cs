@@ -29,6 +29,13 @@ namespace Lesson5
 
             deck.Shuffle(); // shuffle the deck
             deck.Display(); // display shuffled deck
+            Console.WriteLine("=====================");
+
+            Card cardDealt = deck.Deal();
+            Console.WriteLine("Card dealt: {0} of {1}", cardDealt.Face, cardDealt.Suit);
+            Console.WriteLine();
+            deck.Display();
+            
 
         }
 
