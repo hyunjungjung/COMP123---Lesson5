@@ -22,50 +22,17 @@ namespace Lesson5
          */
         public static void Main(string[] args)
         {
-            //create instanace of the Student class
-
-            Student tommy = new Student("Tommy", 20, "S123456789");
-            tommy.SaysHello();
-            Console.WriteLine();
-            tommy.Studies();
-
-
-            tommy.Courses.Add(new Course("COMP123", "Programming 2"));
-            tommy.Courses.Add(new Course("COMP125", "Client-Side Web Development"));
-
-            tommy.ShowCourses();
-
-            Console.WriteLine();
-
-            // create instance of the Teacher class
-            Teacher tom = new Teacher("Tom", 47, "T123456789");
-            tom.SaysHello();
-            tom.Teaches();
-            Console.WriteLine();
-            List<string> names = new List<string>();
-
-            names.Add("Tom");
-            names.Add("Mary");
-            names.Add("Rutvik");
-
-            int count = 0;
-            Console.WriteLine();
-            Console.WriteLine("++++++++++++++++++++++++++++++++++++");
-            foreach (string name in names)
-            {
-                Console.WriteLine("Name # " + count + " is " + name);
-                count++;
-            }
-            Console.WriteLine("++++++++++++++++++++++++++++++++++++");
+            // List that represents deck of card
 
             List<Card> Deck = new List<Card>();
 
             CreateDeck(Deck);
+            DisplayDeck(Deck);
         }
 
         public static void CreateDeck(List<Card> deck)
         {
-            string suit = " ";
+            string suit = "";
             for (int i = 0; i < 4; i++)
             {
                 switch (i)
@@ -86,10 +53,20 @@ namespace Lesson5
                 for (int face = 1; face < 14; face++)
                 {
                     deck.Add(new Card(face, suit));
-                }
-
+                } // end for - face
             }
-
+            
+        }public static void DisplayDeck(List<Card> deck)
+        {
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine("+ Current Deck                                         +");
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            foreach (Card card in deck)
+            {
+                Console.WriteLine("{0} of {1}", card.Face, card.Suit);
+            }
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine();
         }
     }
 }
