@@ -13,7 +13,7 @@ namespace Lesson5
      * 
      * @class Deck
      */
-    public class Deck :List<Card>
+    public class Deck : List<Card>
     {
 
         // CONSTRUCTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -42,28 +42,13 @@ namespace Lesson5
          */
         private void _create()
         {
-            string suit = "";
-            for (int i = 0; i < 4; i++)
+
+            foreach (Suits suit in Enum.GetValues(typeof(Suits)))
             {
-                switch (i)
-                {
-                    case 0:
-                        suit = "hearts";
-                        break;
-                    case 1:
-                        suit = "clubs";
-                        break;
-                    case 2:
-                        suit = "diamonds";
-                        break;
-                    case 3:
-                        suit = "spades";
-                        break;
-                }
-                for (int face = 1; face < 14; face++)
+                foreach (Faces face in Enum.GetValues(typeof(Faces)))
                 {
                     this.Add(new Card(face, suit));
-                } // end for - face
+                }
             }
 
         }
@@ -129,5 +114,5 @@ namespace Lesson5
 
             return returnCard;
         }
-      }
+    }
 }

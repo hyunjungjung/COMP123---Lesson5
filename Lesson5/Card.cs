@@ -16,18 +16,18 @@ namespace Lesson5
          * @class Card
          */
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        public int Face { get; set; }
-        public string Suit { get; set; }
+        public Faces Face { get; set; }
+        public Suits Suit { get; set; }
         /**
          * <summary>
          * This constructor takes two parameters: face and suit to instantiate a Card object
          * </summary>
          * 
          * @constructor Card
-         * @param {string} face
-         * @param {string} suit
+         * @param {Faces} face
+         * @param {Suits} suit
          */
-        public Card(int face, string suit)
+        public Card(Faces face, Suits suit)
         {
             this.Face = face;
             this.Suit = suit;
